@@ -36,3 +36,10 @@ print(synaptic_weights)
 
 print('Output after training: ')
 print(outputs)
+
+inputss = input('Input: ')
+usrInput1 = int(inputss[0])
+usrInput2 = int(inputss[1])
+usrInput3 = int(inputss[2])
+calculated = sigmoid(np.dot(np.array([usrInput1, usrInput2, usrInput3]), synaptic_weights))
+print(int(round(calculated[0])))
