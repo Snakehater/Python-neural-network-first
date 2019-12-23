@@ -1,9 +1,11 @@
 import numpy as np
 
+# sigmoid function to normalize inputs
 def sigmoid(x):
-    return 1/(1 + np.exp(-x))
+    return 1 / (1 + np.exp(-x))
 
-def sigmoid_deritive(x):
+# sigmoid derivatives to adjust synaptic weights
+def sigmoid_derivative(x):
     return x * (1 - x)
 
 training_inputs = np.array([[0, 0, 1], [1, 1, 1], [1, 0, 1], [0, 1, 1]])
@@ -25,7 +27,7 @@ for iteration in range(20000):
 
     error = training_outputs - outputs
 
-    adjustments = error - sigmoid_deritive(outputs)
+    adjustments = error * sigmoid_derivative(outputs)
 
     synaptic_weights += np.dot(input_layer.T, adjustments)
 
